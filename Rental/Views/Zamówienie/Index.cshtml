@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Rental.Models.Zamówienie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Zamówienia</h2>
+
+<p>
+    @Html.ActionLink("Dodaj nowe", "Create")
+
+<p>
+    Nazwisko: @Html.TextBox("SearchString") </br>
+    <input type="submit" value="Filtuj" />
+</p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nazwa urządzenia
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Urządzenie.NazwaUrządzenia)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Imie)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Nazwisko)*@
+            @Html.ActionLink("Nazwisko", "Index", new { sortOrder = ViewBag.LastNameParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ulica)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NumerDomu)*@
+            Numer Domu
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.NumerMieszkania)*@
+            Numer mieszkania
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.KosztZamówienia)*@
+            Koszt zamówienia
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.IlośćMiesięcyWypożyczenia)
+                Ilość miesięcy wypożyczenia
+            </th>*@
+        <th>
+            @*@@Html.DisplayNameFor(model => model.DataZłożenia)  *@
+            @Html.ActionLink("Data złożenia", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.DataZwrotu)*@
+            @Html.ActionLink("Data zwrotu", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Urządzenie.NazwaUrządzenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ulica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumerDomu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumerMieszkania)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KosztZamówienia)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.IlośćMiesięcyWypożyczenia)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.DataZłożenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataZwrotu)
+            </td>
+            <td>
+                @Html.ActionLink("Edycja", "Edit", new { id = item.ZamówienieId }) |
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.ZamówienieId }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.ZamówienieId })
+            </td>
+        </tr>
+    }
+
+</table>

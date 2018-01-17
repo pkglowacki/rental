@@ -1,0 +1,41 @@
+﻿@model Rental.Models.Urządzenie
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Szczegóły</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nazwa Urządzenia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazwaUrządzenia)
+        </dd>
+
+        <dt>
+            Miesięczny Koszt Wypożyczenia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiesięcznyKosztWypożyczenia)
+        </dd>
+
+        <dt>
+            Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edycja", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>

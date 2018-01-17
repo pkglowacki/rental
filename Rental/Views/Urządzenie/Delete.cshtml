@@ -1,0 +1,35 @@
+﻿@model Rental.Models.Urządzenie
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuń urządzenie</h2>
+
+<h3>Czy na pewno?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nazwa Urządzenia
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NazwaUrządzenia)
+        </dd>
+        <dt>
+            Miesięczny Koszt Wypożyczenia
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MiesięcznyKosztWypożyczenia)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>

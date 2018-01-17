@@ -1,0 +1,105 @@
+﻿@model Rental.Models.Zamówienie
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuń zamówienie</h2>
+
+<h3>Czy na pewno?</h3>
+<div>
+    @*<h4>Zamówienie</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nazwa Urządzenia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Urządzenie.NazwaUrządzenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ulica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ulica)
+        </dd>
+
+        <dt>
+            Numer Domu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumerDomu)
+        </dd>
+
+        <dt>
+            Numer Mieszkania
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumerMieszkania)
+        </dd>
+
+        <dt>
+            Koszt Zamówienia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KosztZamówienia)
+        </dd>
+
+        <dt>
+            Ilość Miesięcy Wypożyczenia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlośćMiesięcyWypożyczenia)
+        </dd>
+
+        <dt>
+            Data Złożenia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataZłożenia)
+        </dd>
+
+        <dt>
+            Data Zwrotu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataZwrotu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>
